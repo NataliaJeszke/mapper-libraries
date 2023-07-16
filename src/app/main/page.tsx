@@ -1,7 +1,7 @@
 import DefaultSchema from "../containers/defaultSchema/defaultSchema";
 import MapperWindow from "../containers/mapperWindow/mapperWindow";
 import UserSchema from "../containers/userSchema/userSchema";
-import Work from "../handleUserFiles/handleUserFile";
+import Work from "../containers/handleUserFiles/handleUserFile";
 
 export default async function Main() {
   return (

@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/main/getxml.jsx", "src/app/api/route.ts", "src/app/handleUserFiles/handleUserFile.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/main/getxml.jsx", "src/app/api/route.ts", "src/app/containers/handleUserFiles/handleUserFile.jsx", "src/app/components/tag.jsx"],
   "exclude": ["node_modules"]
 }
