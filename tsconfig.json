@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/main/getxml.jsx", "src/app/api/route.ts", "src/app/handleUserFiles/handleUserFile.jsx"],
   "exclude": ["node_modules"]
 }

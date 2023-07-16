@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-end-rgb: 48, 57, 89; /* Ciemny #303959 */
-  --background-start-rgb: 236, 239, 241; /* Jasny #ECEFF1 */
+  --background-end-rgb: 30, 136, 229; /* Ciemny #303959 */
+  --background-start-rgb: 227, 242, 253; /* Jasny #ECEFF1 */
 }
 
 @media (prefers-color-scheme: light) {
@@ -25,3 +25,5 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
