@@ -69,6 +69,7 @@ function HandleUserFile() {
             <Tag
               key={ref}
               tagKey={values}
+              tagValue={ref}
               className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
             />
           </li>
