@@ -9,7 +9,7 @@ export default function DropdownList() {
   const [schema, setSchema] = useState("PLMET");
   const [tagsData, setTagsData] = useState({});
 
-  const selectSchema = (e: any) => {
+  const selectSchema = (e) => {
     setSchema(e.target.value);
   };
 
