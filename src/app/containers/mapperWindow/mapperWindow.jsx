@@ -2,7 +2,6 @@
 import Tag from "../../components/tag";
 import { useState } from "react";
 import { useDrop } from "react-dnd";
-import { v4 as uuidv4 } from 'uuid';
 
 export default function MapperWindow() {
   const [leftBoard, setLeftBoard] = useState([]);
@@ -30,14 +29,37 @@ export default function MapperWindow() {
 
   const removeTagFromBoard = (id, source) => {
     if (source === "left") {
-      setLeftBoard((leftBoard) => leftBoard.filter((tag) => tag.id !== id));
+      setLeftBoard((leftBoard) => {
+        const index = leftBoard.findIndex((tag) => tag.id === id);
+        if (index !== -1) {
+          leftBoard.splice(index, 1);
+          if (index < rightBoard.length) {
+            setRightBoard((rightBoard) => {
+              const updatedRightBoard = [...rightBoard];
+              updatedRightBoard.splice(index, 1);
+              return updatedRightBoard;
+            });
+          }
+        }
+        return [...leftBoard];
+      });
     } else if (source === "right") {
-      setRightBoard((rightBoard) => rightBoard.filter((tag) => tag.id !== id));
+      setRightBoard((rightBoard) => {
+        const index = rightBoard.findIndex((tag) => tag.id === id);
+        if (index !== -1) {
+          rightBoard.splice(index, 1);
+          if (index < leftBoard.length) {
+            setLeftBoard((rightBoard) => {
+              const updatedLeftBoard = [...rightBoard];
+              updatedLeftBoard.splice(index, 1);
+              return updatedLeftBoard;
+            });
+          }
+        }
+        return [...rightBoard];
+      });
     }
   };
-
-  console.log("Left Board:", leftBoard);
-  console.log("Right Board:", rightBoard);
 
   const renderTags = () => {
     const tags = [];
@@ -74,21 +96,16 @@ export default function MapperWindow() {
       }
     }
 
-    const uniqueId = uuidv4()
-    return <div className="flex" id={uniqueId}>{tags}</div>
+    return tags;
   };
 
   return (
-    <div className="flex flex-col items-center bg-slate-200 rounded basis-1/2 w-64 shadow-sm" ref={drop}>
+    <div
+      className="flex flex-col items-center bg-slate-200 rounded basis-1/2 w-64 shadow-sm"
+      ref={drop}
+    >
       <h1 className="mb-5">Mapper Window</h1>
-      <div className="bg-red-100">
-        <h1>Tags</h1>
-        {renderTags()}
-      </div>
+      <div className="flex">{renderTags()}</div>
     </div>
   );
 }
-
-
-
-
