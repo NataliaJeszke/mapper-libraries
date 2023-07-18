@@ -61,51 +61,88 @@ export default function MapperWindow() {
     }
   };
 
-  const renderTags = () => {
-    const tags = [];
-    const maxLength = Math.max(leftBoard.length, rightBoard.length);
+  // const renderTags = () => {
+  //   const tags = [];
+  //   const maxLength = Math.max(leftBoard.length, rightBoard.length);
 
-    for (let i = 0; i < maxLength; i++) {
-      const leftTag = leftBoard[i];
-      const rightTag = rightBoard[i];
+  //   for (let i = 0; i < maxLength; i++) {
+  //     const leftTag = leftBoard[i];
+  //     const rightTag = rightBoard[i];
 
-      if (leftTag) {
-        tags.push(
-          <Tag
-            key={leftTag.id}
-            tagKey={leftTag.tagKey}
-            tagValue={leftTag.tagValue}
-            source={leftTag.source}
-            className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
-            onRemove={removeTagFromBoard}
-          />
-        );
-      }
+  //     if (leftTag) {
+  //       tags.push(
+  //         <div>
+  //         <Tag
+  //           key={leftTag.id}
+  //           tagKey={leftTag.tagKey}
+  //           tagValue={leftTag.tagValue}
+  //           source={leftTag.source}
+  //           className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
+  //           onRemove={removeTagFromBoard}
+  //         />
+  //         </div>
+  //       );
+  //     }
 
-      if (rightTag) {
-        tags.push(
-          <Tag
-            key={rightTag.id}
-            tagKey={rightTag.tagKey}
-            tagValue={rightTag.tagValue}
-            source={rightTag.source}
-            className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-blue-700 hover:text-white hover:cursor-pointer"
-            onRemove={removeTagFromBoard}
-          />
-        );
-      }
-    }
+  //     if (rightTag) {
+  //       tags.push(
+  //         <div>
+  //         <Tag
+  //           key={rightTag.id}
+  //           tagKey={rightTag.tagKey}
+  //           tagValue={rightTag.tagValue}
+  //           source={rightTag.source}
+  //           className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-blue-700 hover:text-white hover:cursor-pointer"
+  //           onRemove={removeTagFromBoard}
+  //         />
+  //         </div>
+  //       );
+  //     }
+  //   }
 
-    return tags;
-  };
+  //   return tags;
+  
 
+  // return (
+  //   <div
+  //     className="flex flex-col items-center bg-slate-200 rounded basis-1/2 w-64 shadow-sm"
+  //     ref={drop}
+  //   >
+  //     <h1 className="mb-5">Mapper Window</h1>
+  //     <div className="flex flex-col">{renderTags()}</div>
+  //   </div>
+  // );
   return (
-    <div
-      className="flex flex-col items-center bg-slate-200 rounded basis-1/2 w-64 shadow-sm"
-      ref={drop}
-    >
-      <h1 className="mb-5">Mapper Window</h1>
-      <div className="flex">{renderTags()}</div>
+    <div className="bg-slate-200 rounded basis-1/2 w-64 shadow-sm" ref={drop}>
+      <h2 className="text-center m-2">Mapping Window</h2>
+      <div className="flex gap-10 justify-center">
+        <div>
+          <h2 className="m-2">Your Tag</h2>
+          {leftBoard.map((tag) => (
+            <Tag
+              key={tag.id}
+              tagKey={tag.tagKey}
+              tagValue={tag.tagValue}
+              source={tag.source}
+              className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
+              onRemove={removeTagFromBoard}
+            />
+          ))}
+        </div>
+        <div>
+          <h2 className="m-2">Mapp To</h2>
+          {rightBoard.map((tag) => (
+            <Tag
+              key={tag.id}
+              tagKey={tag.tagKey}
+              tagValue={tag.tagValue}
+              source={tag.source}
+              className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
+              onRemove={removeTagFromBoard}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
