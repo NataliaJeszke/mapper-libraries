@@ -2,8 +2,9 @@
 import Tag from "../../components/tag";
 import { useState } from "react";
 import { useDrop } from "react-dnd";
+import { useDrag } from "react-dnd";
 
-export default function MapperWindow() {
+export default function MapperWindow(tagValue, source) {
   const [leftBoard, setLeftBoard] = useState([]);
   const [rightBoard, setRightBoard] = useState([]);
 
@@ -11,6 +12,7 @@ export default function MapperWindow() {
     accept: "tag",
     drop: (item) => {
       addTagToBoard(item.id, item.source);
+      updateBoard(item.id, item.source);
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -26,6 +28,23 @@ export default function MapperWindow() {
       setRightBoard((rightBoard) => [...rightBoard, newTag]);
     }
   };
+
+  const updateBoard = (id, source) => {
+
+    if (source === "left") {
+      setLeftBoard((leftBoard) => {
+      const newArray = [...leftBoard];
+      const index = newArray.findIndex((element) => element.id === id);
+  
+      if (index !== -1) {
+        const element = newArray.splice(index, 1)[0]; 
+        newArray.push(element);
+      }
+  
+      return newArray;
+    });
+  };
+}
 
   const removeTagFromBoard = (id, source) => {
     if (source === "left") {
@@ -61,62 +80,19 @@ export default function MapperWindow() {
     }
   };
 
-  // const renderTags = () => {
-  //   const tags = [];
-  //   const maxLength = Math.max(leftBoard.length, rightBoard.length);
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: "tag",
+    item: { id: tagValue, source: source },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging()
+    })
+  }));
 
-  //   for (let i = 0; i < maxLength; i++) {
-  //     const leftTag = leftBoard[i];
-  //     const rightTag = rightBoard[i];
-
-  //     if (leftTag) {
-  //       tags.push(
-  //         <div>
-  //         <Tag
-  //           key={leftTag.id}
-  //           tagKey={leftTag.tagKey}
-  //           tagValue={leftTag.tagValue}
-  //           source={leftTag.source}
-  //           className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
-  //           onRemove={removeTagFromBoard}
-  //         />
-  //         </div>
-  //       );
-  //     }
-
-  //     if (rightTag) {
-  //       tags.push(
-  //         <div>
-  //         <Tag
-  //           key={rightTag.id}
-  //           tagKey={rightTag.tagKey}
-  //           tagValue={rightTag.tagValue}
-  //           source={rightTag.source}
-  //           className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-blue-700 hover:text-white hover:cursor-pointer"
-  //           onRemove={removeTagFromBoard}
-  //         />
-  //         </div>
-  //       );
-  //     }
-  //   }
-
-  //   return tags;
-  
-
-  // return (
-  //   <div
-  //     className="flex flex-col items-center bg-slate-200 rounded basis-1/2 w-64 shadow-sm"
-  //     ref={drop}
-  //   >
-  //     <h1 className="mb-5">Mapper Window</h1>
-  //     <div className="flex flex-col">{renderTags()}</div>
-  //   </div>
-  // );
   return (
     <div className="bg-slate-200 rounded basis-1/2 w-64 shadow-sm" ref={drop}>
       <h2 className="text-center m-2">Mapping Window</h2>
       <div className="flex gap-10 justify-center">
-        <div>
+        <div ref={drag}>
           <h2 className="m-2">Your Tag</h2>
           {leftBoard.map((tag) => (
             <Tag
@@ -129,7 +105,7 @@ export default function MapperWindow() {
             />
           ))}
         </div>
-        <div>
+        <div ref={drag}>
           <h2 className="m-2">Mapp To</h2>
           {rightBoard.map((tag) => (
             <Tag
