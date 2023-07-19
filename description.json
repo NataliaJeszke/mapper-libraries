@@ -1,0 +1,6 @@
+[
+    {
+        "technologies": "Nextjs 13, DnD-React",
+        "description": "User friendly mapper for librarians who need to send mapping schemas between digital libraries. This application supports XML schemas and Excel files. Mapping is saved in JSON format."
+    }
+]
