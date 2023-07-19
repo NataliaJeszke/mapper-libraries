@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&family=Roboto&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-end-rgb: 30, 136, 229; /* Ciemny #303959 */
@@ -24,6 +26,16 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+header {
+  font-family: 'Nunito Sans', sans-serif !important;
+  font-size: 200px !important;
+  background-image: url("./assets/bg.jpg") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  z-index: 2;
 }
 
 

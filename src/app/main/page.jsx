@@ -8,8 +8,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 export default function Main() {
   return (
     <DndProvider backend={HTML5Backend}>
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h2>Map your schemas and create JSON file</h2>
+    <main className="flex min-h-screen flex-col items-center">
       <section className="flex flex-row gap-4 w-screen p-5">
         <UserSchema />
         <MapperWindow />
