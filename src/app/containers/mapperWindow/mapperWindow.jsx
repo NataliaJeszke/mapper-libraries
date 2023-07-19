@@ -43,7 +43,19 @@ export default function MapperWindow(tagValue, source) {
   
       return newArray;
     });
-  };
+  } else if (source === "right") {
+    setRightBoard((rightBoard) => {
+      const newArray = [...rightBoard];
+      const index = newArray.findIndex((element) => element.id === id);
+
+      if (index !== -1) {
+        const element = newArray.splice(index, 1)[0];
+        newArray.push(element);
+      }
+
+      return newArray;
+    });
+  }
 }
 
   const removeTagFromBoard = (id, source) => {
