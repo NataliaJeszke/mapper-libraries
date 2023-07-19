@@ -25,7 +25,7 @@ export default function DropdownList() {
 
   return (
     <div>
-      <select value={schema} onChange={selectSchema}>
+      <select value={schema} onChange={selectSchema} className="mb-4">
         <option value="PLMET">PLMET</option>
         <option value="DC">DC</option>
       </select>
@@ -35,7 +35,6 @@ export default function DropdownList() {
           tagKey={key}
           tagValue={value}
           source= "right"
-          className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-sky-700 hover:text-white hover:cursor-pointer"
         />
       ))}
     </div>

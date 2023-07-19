@@ -62,7 +62,7 @@ function HandleUserFile() {
 
   return (
     <div>
-      <input type="file" onChange={handleClick} />
+      <input type="file" onChange={handleClick} className="mb-4" />
       <ul>
         {Object.entries(refValues).map(([ref, values]) => (
           <li key={ref}>
@@ -71,7 +71,6 @@ function HandleUserFile() {
               tagKey={values}
               tagValue={ref}
               source="left"
-              className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
             />
           </li>
         ))}

@@ -89,7 +89,7 @@ export default function MapperWindow(tagValue, source) {
   }));
 
   return (
-    <div className="bg-slate-200 rounded basis-1/2 w-64 shadow-sm" ref={drop}>
+    <div className="bg-white rounded-lg basis-1/2 flex-auto flex-wrap shadow-lg" ref={drop}>
       <h2 className="text-center m-2">Mapping Window</h2>
       <div className="flex gap-10 justify-center">
         <div ref={drag}>
@@ -100,7 +100,6 @@ export default function MapperWindow(tagValue, source) {
               tagKey={tag.tagKey}
               tagValue={tag.tagValue}
               source={tag.source}
-              className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
               onRemove={removeTagFromBoard}
             />
           ))}
@@ -113,7 +112,6 @@ export default function MapperWindow(tagValue, source) {
               tagKey={tag.tagKey}
               tagValue={tag.tagValue}
               source={tag.source}
-              className="flex m-2 border-solid border-2 border-slate-950 rounded-md justify-center flex-wrap hover:bg-red-700 hover:text-white hover:cursor-pointer"
               onRemove={removeTagFromBoard}
             />
           ))}
