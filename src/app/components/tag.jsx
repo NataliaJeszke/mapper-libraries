@@ -2,17 +2,17 @@
 import { Tooltip } from "flowbite-react";
 import { useDrag } from "react-dnd";
 
-export default function Tag({ tagKey, tagValue, source, onRemove }) {
+export default function Tag({ tagKey, tagValue, source, identifier, onRemove }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "tag",
-    item: { id: tagValue, source: source },
+    item: { id: tagValue, identifier: identifier, source: source },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   }));
 
   const handleRemove = () => {
-    onRemove(tagValue, source);
+    onRemove(identifier, source);
   };
 
   return (
