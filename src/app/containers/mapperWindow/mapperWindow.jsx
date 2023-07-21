@@ -8,6 +8,7 @@ import { getNextId } from "../../utils/uniqueID";
 import { addTagToBoard, removeTagFromBoard } from "../../utils/tagFunctions";
 import style from "./mapper.style.module.css";
 import { createObjectSchema } from "@/app/utils/createObjectSchema";
+import  createJsonFile  from "@/app/utils/createJsonFile";
 
 export default function MapperWindow(tagValue, source) {
   const [leftBoard, setLeftBoard] = useState([]);
@@ -39,7 +40,8 @@ export default function MapperWindow(tagValue, source) {
 
   const handleClick = () => {
     const objMappedSchema = createObjectSchema(leftBoard, rightBoard);
-    console.log(objMappedSchema);
+
+    createJsonFile(objMappedSchema);
   };
 
   return (
