@@ -7,6 +7,7 @@ import { useDrop, useDrag } from "react-dnd";
 import { getNextId } from "../../utils/uniqueID";
 import { addTagToBoard, removeTagFromBoard } from "../../utils/tagFunctions";
 import style from "./mapper.style.module.css";
+import { createObjectSchema } from "@/app/utils/createObjectSchema";
 
 export default function MapperWindow(tagValue, source) {
   const [leftBoard, setLeftBoard] = useState([]);
@@ -37,8 +38,9 @@ export default function MapperWindow(tagValue, source) {
   }));
 
   const handleClick = () => {
-    console.log("hello click znacie angielski")
-  }
+    const objMappedSchema = createObjectSchema(leftBoard, rightBoard);
+    console.log(objMappedSchema);
+  };
 
   return (
     <div
@@ -46,8 +48,8 @@ export default function MapperWindow(tagValue, source) {
       ref={drop}
     >
       <div className={style.mapper_header}>
-      <h2 className="text-center m-2">Mapping Window</h2>
-      <BtnJSON onChange={handleClick} buttonText="Create JSON"/>
+        <h2 className="text-center m-2">Mapping Window</h2>
+        <BtnJSON onClick={handleClick} buttonText="Create JSON" />
       </div>
 
       <div className="flex gap-10 justify-center">

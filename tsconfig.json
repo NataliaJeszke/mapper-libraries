@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/main/getxml.jsx", "src/app/api/route.ts", "src/app/containers/handleUserFile/handleUserFile.jsx", "src/app/components/tag.jsx", "src/app/main/page.jsx", "src/app/containers/mapperWindow/mapperWindow.jsx", "src/app/containers/dropdownList/dropdownList.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/main/getxml.jsx", "src/app/api/route.ts", "src/app/containers/handleUserFile/handleUserFile.jsx", "src/app/components/tag.jsx", "src/app/main/page.jsx", "src/app/containers/mapperWindow/mapperWindow.jsx", "src/app/containers/dropdownList/dropdownList.jsx", "src/app/utils/createObjectSchema.js"],
   "exclude": ["node_modules"]
 }
