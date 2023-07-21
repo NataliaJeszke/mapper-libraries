@@ -1,11 +1,12 @@
 "use client";
 
 import Tag from "../../components/tag";
+import BtnJSON from "../../components/btnJSON";
 import { useState } from "react";
-import { useDrop } from "react-dnd";
-import { useDrag } from "react-dnd";
+import { useDrop, useDrag } from "react-dnd";
 import { getNextId } from "../../utils/uniqueID";
 import { addTagToBoard, removeTagFromBoard } from "../../utils/tagFunctions";
+import style from "./mapper.style.module.css";
 
 export default function MapperWindow(tagValue, source) {
   const [leftBoard, setLeftBoard] = useState([]);
@@ -35,12 +36,20 @@ export default function MapperWindow(tagValue, source) {
     }),
   }));
 
+  const handleClick = () => {
+    console.log("hello click znacie angielski")
+  }
+
   return (
     <div
       className="bg-white rounded-lg basis-1/2 flex-auto flex-wrap shadow-lg"
       ref={drop}
     >
+      <div className={style.mapper_header}>
       <h2 className="text-center m-2">Mapping Window</h2>
+      <BtnJSON onChange={handleClick} buttonText="Create JSON"/>
+      </div>
+
       <div className="flex gap-10 justify-center">
         <div ref={drag}>
           <h2 className="m-2">Your Tag</h2>

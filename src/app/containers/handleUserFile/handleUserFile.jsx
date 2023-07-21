@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Tag from "../../components/tag";
+import BtnUserFile from "../../components/btnUserFile";
 import {parseXML} from "../../utils/parseXML";
 import {parsedRefValues} from "../../utils/traverse";
+import style from "./handleUserFile.style..module.css"
 
 
 function HandleUserFile() {
@@ -32,7 +34,10 @@ function HandleUserFile() {
   
   return (
     <div>
-      <input type="file" onChange={handleClick} className="mb-4" />
+      <div className={style.user_header}>
+      <h2 className="text-center m-2">Library Schema</h2>
+      <BtnUserFile onChange={handleClick} buttonText="Upload Schema" />
+      </div>   
       <ul>
         {Object.entries(refValues).map(([ref, values]) => (
           <li key={ref}>

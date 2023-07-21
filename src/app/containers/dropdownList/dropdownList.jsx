@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import PLMETschema from "../../data/PLMET.js";
 import DCMESschema from "../../data/DCMES.js";
 import Tag from "../../components/tag.jsx";
+import BtnDefaultSchema from "../../components/btnDefaultSchema.jsx";
+import style from "./dropdown.style.module.css"
 
 export default function DropdownList() {
   const [schema, setSchema] = useState("PLMET");
@@ -25,10 +27,10 @@ export default function DropdownList() {
 
   return (
     <div>
-      <select value={schema} onChange={selectSchema} className="mb-4">
-        <option value="PLMET">PLMET</option>
-        <option value="DC">DC</option>
-      </select>
+      <div className={style.defaultSchema_header}>
+      <h2 className="text-center m-2">Mapp To Schema</h2>
+      <BtnDefaultSchema schema={schema} selectSchema={selectSchema} />
+      </div>
       {Object.entries(tagsData).map(([key, value]) => (
         <Tag
           key={key}
