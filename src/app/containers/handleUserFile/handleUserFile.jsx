@@ -16,7 +16,7 @@ function HandleUserFile() {
   const handleClick = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-    if (file.name.endsWith(".xml" || ".xsd")) {
+    if (file.name.endsWith(".xml") || file.name.endsWith(".xsd")) {
       reader.readAsText(file);
       reader.onload = () => {
         setFileValue(reader.result);
@@ -32,16 +32,10 @@ function HandleUserFile() {
       reader.onerror = () => {
         console.log(reader.error);
       };
-    } else {
+    } 
+     else {
       console.log("Nieobsługiwany typ pliku");
     }
-    // reader.readAsText(file);
-    // reader.onload = () => {
-    //   setFileValue(reader.result);
-    // };
-    // reader.onerror = () => {
-    //   console.log(reader.error);
-    // };
   };
 
   useEffect(() => {
