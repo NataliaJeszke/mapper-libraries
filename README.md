@@ -53,12 +53,9 @@ Contributions to the Mapping System for Libraries Schemas application are welcom
 
 ## License
 
-[MIT License](LICENSE) (Replace 'LICENSE' with the actual link to your license file)
+
 
 ## Contact
 
-For any inquiries or feedback, please contact us at contact@example.com. (Replace 'contact@example.com' with your actual contact email)
+For any inquiries or feedback, please contact me at njeszke.front@gmail.com.
 
----
-
-Please note that the content above is a template, and you should customize it according to your specific project details and preferences. Also, make sure to include the appropriate license file in your project folder and update the license link accordingly in the README.
