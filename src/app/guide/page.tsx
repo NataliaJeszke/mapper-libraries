@@ -1,9 +1,13 @@
+import Link from "next/link";
+
 export default function Guide() {
   return (
     <div className="flex min-h-screen flex-row">
       <section className="flex flex-col gap-4 p-5 bg-white flex-wrap shadow-lg align-center items-center text-justify">
         <article className="flex flex-col gap-4 w-6/12 justify-items-center">
-          <h3 className="text-center m-2">System Mapowania dla Schematów Bibliotecznych</h3>
+          <h3 className="text-center m-2">
+            System Mapowania dla Schematów Bibliotecznych
+          </h3>
           <p>
             System Mapowania dla Schematów Bibliotecznych to aplikacja oparta na
             Next.js 13, wykorzystująca bibliotekę React DnD oraz Tailwind CSS do
@@ -27,10 +31,15 @@ export default function Guide() {
             powinny zawierać tagi tylko w kolumnie A, wymienione jeden pod
             drugim.
             <p>Przykład: 1:A Tytuł 2:A Autor ...</p>
+            <Link href="https://docs.google.com/spreadsheets/d/1avIUiTm456Hd96mj4nLbJouQ4r1yeSwdqc6QrCXSsl8/edit?usp=sharing">
+              <p className="font-bold">Przykład dla plików Excel</p>
+            </Link>
           </p>
         </article>
         <article className="flex flex-col gap-4 w-6/12">
-          <h3 className="text-center m-2">The Mapping System for Libraries Schemas</h3>
+          <h3 className="text-center m-2">
+            The Mapping System for Libraries Schemas
+          </h3>
           <p>
             The Mapping System for Libraries Schemas is an application built on
             Next.js 13, utilizing the React DnD library and Tailwind CSS for
