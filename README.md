@@ -7,7 +7,8 @@ Mapping System for Libraries Schemas is an application built on Next.js 13, util
 
 The JSON file format is widely used for client-server communication due to its versatility, making it suitable for integration with backend systems of digitized cultural and scientific object search engines or sharing with other digital libraries.
 
-The application currently accepts two types of files: XML and XLSX (Excel files). XML files are a common format for digital library schemas and must include an attribute "ref" associated with the tag name, e.g., ref="Title". The application also reads nested "ref" attributes. Excel files should contain tags only in column A, listed one below the other, for example:
+The application currently accepts these types of files: XML and XSD, XLSX (Excel files). XML with XSD files are a common format for digital library schemas and must include an attribute "ref" associated with the tag name, e.g., ref="Title". The application also reads nested "ref" attributes. 
+Excel files should contain tags only in column A, listed one below the other, for example:
 ```
 1:A Title
 2:A Author
