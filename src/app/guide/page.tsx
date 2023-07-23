@@ -61,6 +61,9 @@ export default function Guide() {
             application also reads nested "ref" attributes. Excel files should
             contain tags only in column A, listed one below the other.
             <p>Example: 1:A Title 2:A Author ...</p>
+            <Link href="https://docs.google.com/spreadsheets/d/1avIUiTm456Hd96mj4nLbJouQ4r1yeSwdqc6QrCXSsl8/edit?usp=sharing">
+              <p className="font-bold">Example for Excel files</p>
+            </Link>
           </p>
         </article>
       </section>
