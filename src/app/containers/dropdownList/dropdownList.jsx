@@ -28,7 +28,7 @@ export default function DropdownList() {
   return (
     <div>
       <div className={style.defaultSchema_header}>
-      <h2 className="text-center m-2">Mapp To Schema</h2>
+      <h2 className="text-center m-2">Map To Schema</h2>
       <BtnDefaultSchema schema={schema} selectSchema={selectSchema} />
       </div>
       {Object.entries(tagsData).map(([key, value]) => (
